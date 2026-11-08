@@ -1,6 +1,6 @@
 import pytest
 
-from calc import add, multiply, subtract
+from calc import add, divide, multiply, subtract
 
 
 def test_add():
@@ -28,3 +28,19 @@ def test_multiply():
     assert multiply("ab", 3) == "ab" * 3
     with pytest.raises(TypeError):
         multiply("a", "b")
+
+
+def test_divide():
+    assert divide(7, 2) == 3.5
+    assert divide(6, 3) == 2.0
+    assert type(divide(6, 3)) is float
+    assert divide(-7, 2) == -3.5
+    assert divide(1, 3) == 1 / 3
+    with pytest.raises(ZeroDivisionError):
+        divide(1, 0)
+    with pytest.raises(ZeroDivisionError):
+        divide(1.0, 0.0)
+    with pytest.raises(ZeroDivisionError):
+        divide(0, 0)
+    with pytest.raises(TypeError):
+        divide("a", 1)

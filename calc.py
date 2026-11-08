@@ -11,3 +11,8 @@ def subtract(a, b):
 def multiply(a, b):
     """返回 a * b。"""
     return a * b
+
+
+def divide(a, b):
+    """返回 a / b。"""
+    return a / b
