@@ -1,13 +1,14 @@
-# NORTHSTAR — northstar-trial（信任层验收用的测试项目）
+# NORTHSTAR — northstar-trial（orc 实跑用的玩具项目）
 
 ## 目标（what 和 why，不写 how）
-- N1: 验证 northstar 信任层在真实的 Claude Code、Codex 和 GitHub CI 上都生效：agent 改不了受保护文件、签不了名，每次会话都能读到这份原文。
+- N1: calc 提供正确的四则运算，结果和 Python 运算符完全一致，方便验证 orc 的执行流程。
+- N2: calc 的每个函数都有测试。
 
 ## 不可违反的约束
-- N2: 这个仓库只放验收用的测试内容，不放任何产品代码或敏感信息。
+- N3: 只用 Python 标准库，不引入第三方依赖。
 
 ## 非目标（明确不做）
-- X1: 不在这里开发任何真实功能。
+- X1: 不做命令行和界面。
 
 ## 完成的定义
-- 阶段 1 验收的每一项都有命令和输出作为证据，记录在 building-in-public PR #10 里。
+- `python3 -m pytest -q` 全部通过。
