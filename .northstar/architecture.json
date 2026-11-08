@@ -1,0 +1,34 @@
+{
+  "components": [
+    {
+      "id": "calc",
+      "name": "算数库",
+      "paths": [
+        "calc.py"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "tests",
+      "name": "测试",
+      "paths": [
+        "tests/*"
+      ],
+      "depends_on": [
+        "calc"
+      ]
+    },
+    {
+      "id": "docs",
+      "name": "说明文档",
+      "paths": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        ".gitignore"
+      ],
+      "depends_on": [
+        "calc"
+      ]
+    }
+  ]
+}
