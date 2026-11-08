@@ -1,6 +1,6 @@
 import pytest
 
-from calc import add, power
+from calc import add, floor_divide, modulo, power
 
 
 def test_add():
@@ -22,3 +22,57 @@ def test_power():
 
     with pytest.raises(ZeroDivisionError):
         power(0, -1)
+
+
+def test_floor_divide():
+    r = floor_divide(7, 2)
+    assert r == 3
+    assert type(r) is int
+
+    r = floor_divide(-7, 2)
+    assert r == -4
+    assert type(r) is int
+
+    r = floor_divide(7, -2)
+    assert r == -4
+    assert type(r) is int
+
+    r = floor_divide(7.5, 2)
+    assert r == 7.5 // 2
+    assert type(r) is type(7.5 // 2)
+
+    r = floor_divide(-7.5, 2)
+    assert r == -7.5 // 2
+    assert type(r) is type(-7.5 // 2)
+
+    with pytest.raises(ZeroDivisionError):
+        floor_divide(7, 0)
+    with pytest.raises(ZeroDivisionError):
+        floor_divide(7.5, 0.0)
+
+
+def test_modulo():
+    r = modulo(7, 2)
+    assert r == 1
+    assert type(r) is int
+
+    r = modulo(-7, 2)
+    assert r == 1
+    assert type(r) is int
+
+    r = modulo(7, -2)
+    assert r == -1
+    assert type(r) is int
+
+    r = modulo(7.5, 2)
+    assert r == 7.5 % 2
+    assert type(r) is type(7.5 % 2)
+
+    r = modulo(-7.5, 2)
+    assert r == -7.5 % 2
+    assert type(r) is type(-7.5 % 2)
+
+    with pytest.raises(ZeroDivisionError):
+        modulo(7, 0)
+    with pytest.raises(ZeroDivisionError):
+        modulo(7.5, 0.0)
